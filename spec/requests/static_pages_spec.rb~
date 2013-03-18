@@ -1,0 +1,30 @@
+require 'spec_helper'
+
+describe "Static pages" do
+  describe "Home page" do                          #如果你访问首页时，页面中应该要有所包含的字符串。
+    it "should have the content 'Sample App'" do   #测试是首页上的内容是不是Sample App的单词。
+      visit '/static_pages/home'                   # 测试首页所在的路由位置,由capybara\
+                                                   #中的函数Visit所提供的。
+      page.should have_selector('title', 
+                           :text => 'Ruby on Rails Tutorial Sample App | Home')       
+                         #页面上标题含有这个Sample App的单词.
+    end
+  end
+
+  describe "Help pages" do                         #测试帮助页面的h1里面的子是不是这个单词 
+    it "should have the content 'Help'" do         #检查这个页面内容中又Help这个字吗
+      visit '/static_pages/help'                   #链接要测试的路由地址
+      page.should have_selector('title' 
+                           :text => 'Ruby on Rails Tutorial Sample App | Help')             
+                           #页面的内容是否含有这个单词
+    end
+  end
+	
+	describe "About Us" do
+	  it "should have the content 'About Us'" do
+	    visit "/static_pages/about"
+	    page.should have_selector('title' 
+	                         :text => 'Ruby on Rails Tutorial Sample App | About')
+	  end
+	end
+end
