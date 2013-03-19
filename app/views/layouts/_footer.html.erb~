@@ -1,0 +1,13 @@
+<footer class="footer">
+  <small>
+    <a href="http://github.com/yeyong14/">github</a>
+    by Yeh kevin!
+  </small>
+    <nav>
+      <ul>
+        <li><%= link_to "About",   '#' %></li>
+        <li><%= link_to "Contact", '#' %></li>
+        <li><a href="http://yehkevin.herokuapp.com">Heroku</a></li>
+      </ul>
+    </nav>
+</footer>
