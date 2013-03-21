@@ -63,8 +63,8 @@
     padding-top: 5px;
     border-top:1px solid #eaeaea;
     color: #999;
-    a {
-      color: #555;
+      a {
+        color: #555;
       &:hover {
         color: #222;
         }
