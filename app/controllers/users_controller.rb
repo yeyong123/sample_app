@@ -1,5 +1,8 @@
+#encoding:UTF-8
 class UsersController < ApplicationController
-  before_filter :signed_in_user, only:[:index,:edit,:update,:destroy] 
+    
+  before_filter :signed_in_user, 
+                only:[:index,:edit,:update,:destroy,:following,:followers] 
   before_filter :correct_user,only:[:edit,:update]
   before_filter :admin_user, only: :destroy
  def show
@@ -20,7 +23,7 @@ class UsersController < ApplicationController
   @user = User.new(params[:user])
   if @user.save
     sign_in @user
-    flash[:success] = "Welcome to the Sample App!"
+    flash[:success] = "欢迎加入我们!"
     redirect_to @user
   else
     render 'new'
@@ -48,6 +51,19 @@ def destroy
  redirect_to users_path
  end
 
+def following 
+  @title = "Following"
+  @user = User.find(params[:id])
+  @users = @user.followed_users.paginate(page: params[:page])
+  render 'show_follow'
+end
+
+def followers
+  @title = 'Followers'
+  @user = User.find(params[:id])
+  @users = @user.followers.paginate(page: params[:page])
+  render 'show_follow'
+end
   private
     def signed_in_user
       unless signed_in?
