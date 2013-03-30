@@ -6,7 +6,7 @@
 #created_at   :datetime
 #updated_at   :datetime
 #
-#
+#encoding:UTF-8
 class User < ActiveRecord::Base
 
   attr_accessible :email, :name, :password, :password_confirmation

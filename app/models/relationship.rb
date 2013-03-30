@@ -1,3 +1,4 @@
+#encoding:UTF-8
 class Relationship < ActiveRecord::Base
   attr_accessible :followed_id
   

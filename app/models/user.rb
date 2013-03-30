@@ -1,3 +1,4 @@
+#encoding:UTF-8
 # == Schema Infoemation
 # Table name: users
 # id ;integer not null,primary key
@@ -6,7 +7,6 @@
 #created_at   :datetime
 #updated_at   :datetime
 #
-#encoding:UTF-8
 class User < ActiveRecord::Base
 
   attr_accessible :email, :name, :password, :password_confirmation
